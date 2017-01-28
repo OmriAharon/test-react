@@ -1,0 +1,40 @@
+{
+  "globals": {
+    "rootRequire": false
+  },
+
+  "plugins": ["react"],
+
+  "parser": "babel-eslint",
+
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeaturs": {
+      "jsx": true,
+      "generators": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+
+  "settings": {
+    "react": {
+      "version": "15.3.2"
+    }
+  },
+
+  "rules": {
+    "react/jsx-equals-spacing": [2, "never"],
+    "react/jsx-handler-names": [2, {
+      "eventHandlerPrefix": "_handle",
+      "eventHandlerPropPrefix": "on"
+    }],
+    "react/jsx-pascal-case": [2, {
+      "allowAllCaps": true,
+      "ignore": []
+    }],
+    "react/require-render-return": 2
+  },
+
+  "extends": ["plugin:react/recommended"]
+}

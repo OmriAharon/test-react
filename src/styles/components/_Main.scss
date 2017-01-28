@@ -1,0 +1,38 @@
+.Main {
+  &__home-background {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  &__home-text {
+    font-size: 60px;
+    font-weight: 600;
+    font-style: italic;
+    color: #fff;
+    font-family: AdineKirnberg;
+    width: 100vw;
+    margin: 0 auto;
+    margin-top: 230px;
+  }
+
+  &__top-home-text {
+    padding-left: 300px;
+  }
+
+  &__bottom-home-text {
+    margin-top: 50px;
+    padding-left: 600px;
+  }
+
+  &__find-button {
+    height: 45px !important;
+    margin: 70px 0 0 630px !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    font-size: $font-size-large !important;
+  }
+}

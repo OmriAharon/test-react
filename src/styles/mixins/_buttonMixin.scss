@@ -1,0 +1,52 @@
+////
+/// Mixin for setting button style in a specific state
+/// $name - the state name (hover, active, focus)
+/// $color - the font color
+/// $bg - background
+/// $border - border color (optional). If null, the border will be as the color of the background.
+////
+@mixin button-state-variant($name, $color, $bg, $border: null) {
+  &:#{$name} {
+    background-color: $bg;
+    box-shadow: none;
+    color: $color;
+    outline: none;
+    @if $border == null {
+      border-color: transparent;
+    } @else {
+      border-color: $border;
+    }
+  }
+}
+
+////
+/// Mixin for setting button style when hovered and pressed
+/// $color-hover - the font color when hovered
+/// $bg-hover - the bg color when hovered
+/// $border-hover - the border color when hovered
+/// $color-active - the font color when active
+/// $bg-active - the bg color when active
+/// $border-active - the border color when active
+////
+@mixin set-button-hover-active-states($color-hover, $bg-hover, $border-hover, $color-active, $bg-active, $border-active, $color-focus, $bg-focus, $border-focus) {
+  @include button-state-variant('hover', $color-hover, $bg-hover, $border-hover);
+  @include button-state-variant('hover:focus', $color-hover, $bg-hover, $border-hover);
+  @include button-state-variant('active', $color-active, $bg-active, $border-active);
+  @include button-state-variant('active:focus', $color-active, $bg-active, $border-active);
+  @include button-state-variant('focus', $color-focus, $bg-focus, $border-focus);
+}
+
+@mixin btn-transparent-variant($color-default: $gray-dark, $color-hover: $accent-hover, $color-active: $accent-pressed, $color-disabled: $gray-light) {
+  @include button-variant($color-default, transparent, transparent);
+  @include set-button-hover-active-states($color-hover, transparent, transparent, $color-active, transparent, transparent, $color-default, transparent, transparent);
+
+  &.disabled,
+  &[disabled] {
+    &,
+    &:hover,
+    &:focus {
+      @include button-variant($color-disabled, transparent, transparent);
+      cursor: default;
+    }
+  }
+}
