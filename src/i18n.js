@@ -5,7 +5,7 @@ export const defaultLanguage = 'en';
 
 
 const languages = {
-  'en': require('./en.yml')
+  'en': require('../locale/en.yml')
 };
 
 
